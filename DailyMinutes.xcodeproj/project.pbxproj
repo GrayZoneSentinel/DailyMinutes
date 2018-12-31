@@ -16,6 +16,8 @@
 		9464AEC921DA5DAD003C6500 /* NewMinuteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9464AEC821DA5DAD003C6500 /* NewMinuteVC.swift */; };
 		9464AECE21DA5F59003C6500 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9464AECD21DA5F59003C6500 /* GoogleService-Info.plist */; };
 		9464AED121DA7510003C6500 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9464AED021DA7510003C6500 /* Constants.swift */; };
+		9464AED321DA87ED003C6500 /* MinuteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9464AED221DA87ED003C6500 /* MinuteCell.swift */; };
+		9464AED521DA9196003C6500 /* Minute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9464AED421DA9196003C6500 /* Minute.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		9464AEC821DA5DAD003C6500 /* NewMinuteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMinuteVC.swift; sourceTree = "<group>"; };
 		9464AECD21DA5F59003C6500 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9464AED021DA7510003C6500 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9464AED221DA87ED003C6500 /* MinuteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinuteCell.swift; sourceTree = "<group>"; };
+		9464AED421DA9196003C6500 /* Minute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minute.swift; sourceTree = "<group>"; };
 		C49F7E1CCA00C08FBED90B55 /* Pods-DailyMinutes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyMinutes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyMinutes/Pods-DailyMinutes.debug.xcconfig"; sourceTree = "<group>"; };
 		FA0554A6E5424595EE027BEF /* Pods-DailyMinutes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyMinutes.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyMinutes/Pods-DailyMinutes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +106,7 @@
 		9464AECB21DA5DDF003C6500 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9464AED221DA87ED003C6500 /* MinuteCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 		9464AECC21DA5E04003C6500 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9464AED421DA9196003C6500 /* Minute.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,7 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9464AEB921DA56C6003C6500 /* MainVC.swift in Sources */,
+				9464AED521DA9196003C6500 /* Minute.swift in Sources */,
 				9464AEB721DA56C6003C6500 /* AppDelegate.swift in Sources */,
+				9464AED321DA87ED003C6500 /* MinuteCell.swift in Sources */,
 				9464AEC921DA5DAD003C6500 /* NewMinuteVC.swift in Sources */,
 				9464AED121DA7510003C6500 /* Constants.swift in Sources */,
 			);

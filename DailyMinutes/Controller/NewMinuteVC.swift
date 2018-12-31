@@ -12,10 +12,10 @@ import Firebase
 class NewMinuteVC: UIViewController, UITextViewDelegate {
 
     // OUTLETS & ELEMENTS
-    @IBOutlet weak var usernameLbl: UILabel!
-    @IBOutlet weak var minuteTxt: UITextView!
-    @IBOutlet weak var saveBtn: UIButton!
-    @IBOutlet weak var valoracionSegmentCtr: UISegmentedControl!
+    @IBOutlet private weak var usernameLbl: UILabel!
+    @IBOutlet private weak var minuteTxt: UITextView!
+    @IBOutlet private weak var saveBtn: UIButton!
+    @IBOutlet private weak var valoracionSegmentCtr: UISegmentedControl!
     
     // VARIABLES
     private var selectedValoracion = DayEvaluation.normal.rawValue
