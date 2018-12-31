@@ -1,24 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3wW-ov-Wdi">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Daily Minutes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="DailyMinutes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Daily Minutes" id="0dT-4o-Oh9">
+                        <barButtonItem key="rightBarButtonItem" width="8" systemItem="add" id="mr0-7Y-CdI">
+                            <inset key="imageInsets" minX="0.0" minY="12" maxX="8" maxY="0.0"/>
+                            <color key="tintColor" red="1" green="0.64222370569999998" blue="0.077080981940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="Mau-IX-ke4" kind="show" identifier="GoToAddNewMinute" id="0uL-vd-fCg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="722" y="134"/>
+        </scene>
+        <!--New MinuteVC-->
+        <scene sceneID="P14-N9-vVm">
+            <objects>
+                <viewController id="Mau-IX-ke4" customClass="NewMinuteVC" customModule="DailyMinutes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pd0-pM-bEC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily minute record for Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1U-kd-iNx">
+                                <rect key="frame" x="66" y="140" width="243" height="25"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                <color key="textColor" red="1" green="0.64222370569999998" blue="0.077080981940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUv-61-Qod">
+                                <rect key="frame" x="66" y="187" width="243" height="28"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GvQ-r6-xF8">
+                                <rect key="frame" x="66" y="310" width="243" height="148"/>
+                                <color key="backgroundColor" white="1" alpha="0.081014554794520549" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="148" id="n4N-ER-N0b"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlF-IQ-IUI">
+                                <rect key="frame" x="254" y="472" width="55" height="27"/>
+                                <color key="backgroundColor" red="1" green="0.64222370569999998" blue="0.077080981940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="iOa-q4-QIl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="12"/>
+                                <state key="normal" title="Guardar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveBtn:" destination="Mau-IX-ke4" eventType="touchUpInside" id="af3-E1-lpQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valoración general del día" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKj-OZ-TJN">
+                                <rect key="frame" x="66" y="223" width="161" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="LC9-dz-mw0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.64222370569999998" blue="0.077080981940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="f1T-t2-Oww">
+                                <rect key="frame" x="66" y="246" width="243" height="29"/>
+                                <segments>
+                                    <segment title="Malo"/>
+                                    <segment title="Normal"/>
+                                    <segment title="Bueno"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="valoracionCtrChanged:" destination="Mau-IX-ke4" eventType="valueChanged" id="zpA-Gd-Wnm"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuenta algo de tu día" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYc-N5-wcK">
+                                <rect key="frame" x="66" y="289" width="135" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="eFf-KL-YMd"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="gg8-cP-NIm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.64222370569999998" blue="0.077080981940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GvQ-r6-xF8" firstAttribute="top" secondItem="gUv-61-Qod" secondAttribute="bottom" constant="95" id="0tH-bg-ttJ"/>
+                            <constraint firstItem="LlF-IQ-IUI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0rR-8k-5Ra" secondAttribute="leading" symbolic="YES" id="2W3-Lg-9qW"/>
+                            <constraint firstItem="gUv-61-Qod" firstAttribute="leading" secondItem="K1U-kd-iNx" secondAttribute="leading" id="3cV-d1-6UC"/>
+                            <constraint firstItem="f1T-t2-Oww" firstAttribute="top" secondItem="DKj-OZ-TJN" secondAttribute="bottom" constant="3" id="4Ij-2Z-ycO"/>
+                            <constraint firstItem="GvQ-r6-xF8" firstAttribute="top" secondItem="f1T-t2-Oww" secondAttribute="bottom" constant="36" id="5GM-PX-k08"/>
+                            <constraint firstItem="0rR-8k-5Ra" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tYc-N5-wcK" secondAttribute="trailing" symbolic="YES" id="76f-iq-SAg"/>
+                            <constraint firstItem="f1T-t2-Oww" firstAttribute="width" secondItem="GvQ-r6-xF8" secondAttribute="width" id="AYY-b3-5YV"/>
+                            <constraint firstItem="gUv-61-Qod" firstAttribute="trailing" secondItem="K1U-kd-iNx" secondAttribute="trailing" id="GTc-wg-phS"/>
+                            <constraint firstItem="GvQ-r6-xF8" firstAttribute="trailing" secondItem="gUv-61-Qod" secondAttribute="trailing" id="JV4-aV-A7b"/>
+                            <constraint firstItem="GvQ-r6-xF8" firstAttribute="top" secondItem="tYc-N5-wcK" secondAttribute="bottom" constant="1" id="Jwn-4D-Gft"/>
+                            <constraint firstItem="GvQ-r6-xF8" firstAttribute="leading" secondItem="gUv-61-Qod" secondAttribute="leading" id="Rov-7b-Mht"/>
+                            <constraint firstItem="K1U-kd-iNx" firstAttribute="top" secondItem="0rR-8k-5Ra" secondAttribute="top" constant="24" id="WCl-7F-DO6"/>
+                            <constraint firstItem="DKj-OZ-TJN" firstAttribute="top" secondItem="gUv-61-Qod" secondAttribute="bottom" constant="8" id="XLj-Ge-DOT"/>
+                            <constraint firstItem="tYc-N5-wcK" firstAttribute="leading" secondItem="f1T-t2-Oww" secondAttribute="leading" id="ZQq-ld-um0"/>
+                            <constraint firstItem="LlF-IQ-IUI" firstAttribute="trailing" secondItem="GvQ-r6-xF8" secondAttribute="trailing" id="cJW-wS-YSe"/>
+                            <constraint firstItem="f1T-t2-Oww" firstAttribute="centerX" secondItem="GvQ-r6-xF8" secondAttribute="centerX" id="d5E-dV-RaL"/>
+                            <constraint firstItem="tYc-N5-wcK" firstAttribute="top" secondItem="f1T-t2-Oww" secondAttribute="bottom" constant="15" id="d9w-va-u4o"/>
+                            <constraint firstItem="0rR-8k-5Ra" firstAttribute="trailing" secondItem="K1U-kd-iNx" secondAttribute="trailing" constant="66" id="ipI-ho-exy"/>
+                            <constraint firstItem="K1U-kd-iNx" firstAttribute="leading" secondItem="0rR-8k-5Ra" secondAttribute="leading" constant="66" id="ngx-EW-aiS"/>
+                            <constraint firstItem="gUv-61-Qod" firstAttribute="top" secondItem="K1U-kd-iNx" secondAttribute="bottom" constant="22" id="oVo-6D-85j"/>
+                            <constraint firstItem="0rR-8k-5Ra" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DKj-OZ-TJN" secondAttribute="trailing" symbolic="YES" id="q7e-6f-lXo"/>
+                            <constraint firstItem="DKj-OZ-TJN" firstAttribute="leading" secondItem="gUv-61-Qod" secondAttribute="leading" id="qwM-Zj-vlI"/>
+                            <constraint firstItem="LlF-IQ-IUI" firstAttribute="top" secondItem="GvQ-r6-xF8" secondAttribute="bottom" constant="14" id="sFe-3F-bzI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0rR-8k-5Ra"/>
+                    </view>
+                    <connections>
+                        <outlet property="minuteTxt" destination="GvQ-r6-xF8" id="Epn-VQ-E3E"/>
+                        <outlet property="saveBtn" destination="LlF-IQ-IUI" id="cti-cE-R9H"/>
+                        <outlet property="usernameLbl" destination="gUv-61-Qod" id="AqO-CT-tQz"/>
+                        <outlet property="valoracionSegmentCtr" destination="f1T-t2-Oww" id="tCr-BS-TPA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xhr-2o-7my" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1432.8" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GEc-fL-Btg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3wW-ov-Wdi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="75K-Ch-w5j">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.64222370569999998" blue="0.077080981940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="18"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="30"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Cg2-Em-omc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i33-AR-45R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-55" y="134"/>
         </scene>
     </scenes>
 </document>

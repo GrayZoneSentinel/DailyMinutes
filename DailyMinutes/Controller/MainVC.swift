@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainVC.swift
 //  DailyMinutes
 //
 //  Created by Ernesto on 31/12/2018.
@@ -8,7 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+
+enum DayEvaluation : String {
+    case bad =  "Malo"
+    case good = "Bueno"
+    case normal = "Normal"
+    case today = "Hoy"
+}
+
+class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
