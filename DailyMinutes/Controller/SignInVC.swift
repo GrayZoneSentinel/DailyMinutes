@@ -33,7 +33,19 @@ class SignInVC: UIViewController {
 
     // MARK: - ACTIONS
     @IBAction func enterBtnTapped(_ sender: Any) {
+        guard let userEmail = usernameTxt.text else { return }
+        guard let userPassword = passwordTxt.text else { return }
+        Auth.auth().signIn(withEmail: userEmail, password: userPassword) { (user, error) in
+            if let error = error {
+                debugPrint("An error occurred while login: \(error.localizedDescription)")
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
+    
     @IBAction func forgotPasswordTapped(_ sender: Any) {
+        // TODO: - Recover password
+        print("Recover password button tapped!")
     }
 }

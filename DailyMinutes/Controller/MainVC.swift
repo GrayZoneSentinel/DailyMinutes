@@ -30,34 +30,24 @@ class MainVC: UIViewController {
     private var minutesListener: ListenerRegistration!
     // interface variables
     private var evaluationSegment = DayEvaluation.normal.rawValue
+    // authentication variables
+    private var handleAuth: AuthStateDidChangeListenerHandle?
     
     
+    // MARK: - CLASS METHODS
     override func viewWillAppear(_ animated: Bool) {
         
-        setMinutesListener()
-        
-        /* Dismissed:
-         minutesCollectionRef.getDocuments { (snapshot, error) in
-            if let error = error {
-                debugPrint("An error arose while fetching the documents: \(error)")
+        handleAuth = Auth.auth().addStateDidChangeListener({ (auth, user) in
+            if user == nil {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let logInVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+                self.present(logInVC, animated: true, completion: nil)
             } else {
-                guard let snap = snapshot else { return }
-                for document in snap.documents {
-                    let data = document.data()
-                    let username = data[USERNAME] as? String ?? "Anónimo"
-                    let timestamp = data[TIMESTAMP] as? Date ?? Date()
-                    let minute = data[COMENTARIO] as? String ?? "No hay comentarios"
-                    let numComments = data[NUM_COMMENTS] as? Int ?? 0
-                    let numLikes = data[NUM_LIKES] as? Int ?? 0
-                    let documentId = document.documentID
-                    let newMinute = Minute(username: username, timestamp: timestamp, minuteText: minute, numComments: numComments, numLikes: numLikes, documentId: documentId)
-                    self.minutes.append(newMinute)
-                }
-                self.minutesTableView.reloadData()
+                self.setMinutesListener()
             }
-        }*/
+        })
     }
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // UI SETUP
@@ -73,8 +63,11 @@ class MainVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         // LISTENERS REMOVALS
-        minutesListener.remove()
+        if minutesListener != nil {
+            minutesListener.remove()
+        } 
     }
+    
     
     // MARK: - FUNCTIONS
     func setMinutesListener() {
@@ -133,6 +126,17 @@ class MainVC: UIViewController {
         minutesListener.remove()
         setMinutesListener()
     }
+    
+    @IBAction func logoutBtnTapped(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let error as NSError {
+                debugPrint("An error occurred while loging out: \(error.localizedDescription)")
+        }
+    }
+    
+    
 }
 
 

@@ -30,6 +30,8 @@ class NewMinuteVC: UIViewController, UITextViewDelegate {
         minuteTxt.textColor = UIColor.lightGray
         minuteTxt.delegate = self
         
+        usernameLbl.text = Auth.auth().currentUser?.displayName
+        
     }
     
     // DELEGATIONS
