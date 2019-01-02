@@ -9,6 +9,7 @@
 import Foundation
 
 let MINUTES_COL_REF = "Minutes"
+let USERS_REF = "Users"
 
 let USERNAME = "username"
 let EVALUACION = "evaluacion"
@@ -16,4 +17,5 @@ let COMENTARIO = "comentario"
 let TIMESTAMP = "timestamp"
 let NUM_LIKES = "numLikes"
 let NUM_COMMENTS = "numComentarios"
+let DATE_CREATED = "dateCreated"
 
