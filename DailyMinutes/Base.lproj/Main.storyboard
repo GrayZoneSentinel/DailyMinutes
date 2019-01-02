@@ -44,8 +44,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="122.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JqG-SH-oNF">
-                                                    <rect key="frame" x="15" y="18" width="75" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JqG-SH-oNF">
+                                                    <rect key="frame" x="15" y="18" width="76" height="16"/>
                                                     <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="15"/>
                                                     <color key="textColor" red="1" green="0.64222370569999998" blue="0.077080981940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
