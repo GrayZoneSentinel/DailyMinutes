@@ -14,7 +14,7 @@ enum DayEvaluation : String {
     case bad =  "Malo"
     case good = "Bueno"
     case normal = "Normal"
-    case today = "Hoy"
+    case all = "Todas"
 }
 
 class MainVC: UIViewController {
@@ -63,6 +63,7 @@ class MainVC: UIViewController {
         // UI SETUP
         minutesTableView.estimatedRowHeight = 115
         minutesTableView.rowHeight = UITableView.automaticDimension
+        minutesTableView.tableFooterView = UIView()
         // DELEGATIONS
         minutesTableView.delegate = self
         minutesTableView.dataSource = self
@@ -77,31 +78,59 @@ class MainVC: UIViewController {
     
     // MARK: - FUNCTIONS
     func setMinutesListener() {
-        minutesListener = minutesCollectionRef
-            .whereField(EVALUACION, isEqualTo: evaluationSegment)
-            .order(by: TIMESTAMP, descending: true)
-            .addSnapshotListener { (snapshot, error) in
-            if let error = error {
-                debugPrint("An error arose while fetching the documents: \(error)")
-            } else {
-                self.minutes.removeAll()
-                guard let snap = snapshot else { return }
-                for document in snap.documents {
-                    let data = document.data()
-                    let username = data[USERNAME] as? String ?? "Anónimo"
-                    let timestamp = data[TIMESTAMP] as? Date ?? Date()
-                    let minute = data[COMENTARIO] as? String ?? "No hay comentarios"
-                    let numComments = data[NUM_COMMENTS] as? Int ?? 0
-                    let numLikes = data[NUM_LIKES] as? Int ?? 0
-                    let documentId = document.documentID
-                    
-                    let newMinute = Minute(username: username, timestamp: timestamp, minuteText: minute, numComments: numComments, numLikes: numLikes, documentId: documentId)
-                    
-                    self.minutes.append(newMinute)
-                    
+        if evaluationSegment == DayEvaluation.all.rawValue {
+            minutesListener = minutesCollectionRef
+                .order(by: TIMESTAMP, descending: true)
+                .addSnapshotListener { (snapshot, error) in
+                    if let error = error {
+                        debugPrint("An error arose while fetching the documents: \(error)")
+                    } else {
+                        self.minutes.removeAll()
+                        guard let snap = snapshot else { return }
+                        for document in snap.documents {
+                            let data = document.data()
+                            let username = data[USERNAME] as? String ?? "Anónimo"
+                            let timestamp = data[TIMESTAMP] as? Date ?? Date()
+                            let minute = data[COMENTARIO] as? String ?? "No hay comentarios"
+                            let numComments = data[NUM_COMMENTS] as? Int ?? 0
+                            let numLikes = data[NUM_LIKES] as? Int ?? 0
+                            let documentId = document.documentID
+                            
+                            let newMinute = Minute(username: username, timestamp: timestamp, minuteText: minute, numComments: numComments, numLikes: numLikes, documentId: documentId)
+                            
+                            self.minutes.append(newMinute)
+                            
+                        }
+                        self.minutesTableView.reloadData()
+                    }
                 }
-                self.minutesTableView.reloadData()
-            }
+        } else {
+            minutesListener = minutesCollectionRef
+                .whereField(EVALUACION, isEqualTo: evaluationSegment)
+                .order(by: TIMESTAMP, descending: true)
+                .addSnapshotListener { (snapshot, error) in
+                    if let error = error {
+                        debugPrint("An error arose while fetching the documents: \(error)")
+                    } else {
+                        self.minutes.removeAll()
+                        guard let snap = snapshot else { return }
+                        for document in snap.documents {
+                            let data = document.data()
+                            let username = data[USERNAME] as? String ?? "Anónimo"
+                            let timestamp = data[TIMESTAMP] as? Date ?? Date()
+                            let minute = data[COMENTARIO] as? String ?? "No hay comentarios"
+                            let numComments = data[NUM_COMMENTS] as? Int ?? 0
+                            let numLikes = data[NUM_LIKES] as? Int ?? 0
+                            let documentId = document.documentID
+                            
+                            let newMinute = Minute(username: username, timestamp: timestamp, minuteText: minute, numComments: numComments, numLikes: numLikes, documentId: documentId)
+                            
+                            self.minutes.append(newMinute)
+                            
+                        }
+                        self.minutesTableView.reloadData()
+                    }
+                }
         }
     }
 
@@ -110,7 +139,7 @@ class MainVC: UIViewController {
     @IBAction func evaluationSegmentChanged(_ sender: Any) {
         switch evaluationSegmentCtr.selectedSegmentIndex {
         case 0:
-            evaluationSegment = DayEvaluation.today.rawValue
+            evaluationSegment = DayEvaluation.all.rawValue
         case 1:
             evaluationSegment = DayEvaluation.bad.rawValue
         case 2:
@@ -118,7 +147,7 @@ class MainVC: UIViewController {
         case 3:
             evaluationSegment = DayEvaluation.good.rawValue
         default:
-            evaluationSegment = DayEvaluation.today.rawValue
+            evaluationSegment = DayEvaluation.all.rawValue
             
         }
         

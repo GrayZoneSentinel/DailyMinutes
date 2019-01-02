@@ -20,7 +20,7 @@ class MinuteCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
     }
     
     // FUNCTIONS
@@ -31,7 +31,7 @@ class MinuteCell: UITableViewCell {
         
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ES_es")
-        formatter.dateFormat = "d MMM Y, hh:mm"
+        formatter.dateFormat = "d MMM Y, HH:mm"
         let timestamp = formatter.string(from: minute.timestamp)
         timestampLbl.text = timestamp
     }
