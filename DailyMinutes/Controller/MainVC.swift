@@ -86,21 +86,10 @@ class MainVC: UIViewController {
                         debugPrint("An error arose while fetching the documents: \(error)")
                     } else {
                         self.minutes.removeAll()
-                        guard let snap = snapshot else { return }
-                        for document in snap.documents {
-                            let data = document.data()
-                            let username = data[USERNAME] as? String ?? "Anónimo"
-                            let timestamp = data[TIMESTAMP] as? Date ?? Date()
-                            let minute = data[COMENTARIO] as? String ?? "No hay comentarios"
-                            let numComments = data[NUM_COMMENTS] as? Int ?? 0
-                            let numLikes = data[NUM_LIKES] as? Int ?? 0
-                            let documentId = document.documentID
-                            
-                            let newMinute = Minute(username: username, timestamp: timestamp, minuteText: minute, numComments: numComments, numLikes: numLikes, documentId: documentId)
-                            
-                            self.minutes.append(newMinute)
-                            
-                        }
+                        
+                        // Bring the class function declared in Minute.swift to retrieve the data
+                        self.minutes = Minute.parseDate(snapshot: snapshot)
+                        
                         self.minutesTableView.reloadData()
                     }
                 }
@@ -113,21 +102,10 @@ class MainVC: UIViewController {
                         debugPrint("An error arose while fetching the documents: \(error)")
                     } else {
                         self.minutes.removeAll()
-                        guard let snap = snapshot else { return }
-                        for document in snap.documents {
-                            let data = document.data()
-                            let username = data[USERNAME] as? String ?? "Anónimo"
-                            let timestamp = data[TIMESTAMP] as? Date ?? Date()
-                            let minute = data[COMENTARIO] as? String ?? "No hay comentarios"
-                            let numComments = data[NUM_COMMENTS] as? Int ?? 0
-                            let numLikes = data[NUM_LIKES] as? Int ?? 0
-                            let documentId = document.documentID
-                            
-                            let newMinute = Minute(username: username, timestamp: timestamp, minuteText: minute, numComments: numComments, numLikes: numLikes, documentId: documentId)
-                            
-                            self.minutes.append(newMinute)
-                            
-                        }
+                        
+                        // Bring the class function declared in Minute.swift to retrieve the data
+                        self.minutes = Minute.parseDate(snapshot: snapshot)
+                        
                         self.minutesTableView.reloadData()
                     }
                 }

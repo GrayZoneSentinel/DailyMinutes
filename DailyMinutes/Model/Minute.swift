@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Firebase
 
 class Minute {
     
@@ -25,6 +25,29 @@ class Minute {
         self.numComments = numComments
         self.numLikes = numLikes
         self.documentId = documentId
+    }
+    
+    // FUNCTION TO DETERMINE THE SNAPSHOT
+    class func parseDate(snapshot: QuerySnapshot?) -> [Minute] {
+        var minutes = [Minute]()
+        
+        // The code extracted from MainVC snapshot
+        guard let snap = snapshot else { return minutes }
+        for document in snap.documents {
+            let data = document.data()
+            let username = data[USERNAME] as? String ?? "Anónimo"
+            let timestamp = data[TIMESTAMP] as? Date ?? Date()
+            let minute = data[COMENTARIO] as? String ?? "No hay comentarios"
+            let numComments = data[NUM_COMMENTS] as? Int ?? 0
+            let numLikes = data[NUM_LIKES] as? Int ?? 0
+            let documentId = document.documentID
+            
+            let newMinute = Minute(username: username, timestamp: timestamp, minuteText: minute, numComments: numComments, numLikes: numLikes, documentId: documentId)
+            
+            minutes.append(newMinute)
+            
+        }
+        return minutes
     }
     
 }
