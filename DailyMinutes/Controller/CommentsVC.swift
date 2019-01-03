@@ -18,17 +18,37 @@ class CommentsVC: UIViewController {
     @IBOutlet weak var sendCommentBtn: UIButton!
     
     // MARK: - VARIABLES
-    var minute: Minute!
-    var comments = [Comment]()
-    var minuteRef: DocumentReference!
-    var firestore = Firestore.firestore()
-    var username: String!
+        // Class models references
+            var minute: Minute!
+            var comments = [Comment]()
+        // DB references for the transaction
+            var minuteRef: DocumentReference!
+            var firestore = Firestore.firestore()
+            var username: String!
+        // DB references for the fecthing of comments
+            var commentListener: ListenerRegistration!
+    
     
     // MARK: - CLASS METHODS
+    override func viewDidAppear(_ animated: Bool) {
+        commentListener = firestore.collection(MINUTES_COL_REF).document(self.minute.documentId).collection(COMMENTS_COL_REF)
+            .order(by: TIMESTAMP, descending: true)
+            .addSnapshotListener({ (snapshot, error) in
+            guard let snapshot = snapshot else {
+                debugPrint("An error occurred while fetching the comments of the relevant minute: \(error!.localizedDescription)")
+                return
+            }
+            
+            self.comments.removeAll()
+            self.comments = Comment.parseData(snapshot: snapshot)
+            self.commentsTableView.reloadData()
+        })
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // UI setup
         commentsTableView.tableFooterView = UIView()
+        commentsTableView.backgroundColor = UIColor.init(white: 1, alpha: 0)
         // Extension delegations
         commentsTableView.delegate = self
         commentsTableView.dataSource = self
@@ -42,6 +62,9 @@ class CommentsVC: UIViewController {
             if let user = Auth.auth().currentUser?.displayName {
                 username = user
             }
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        commentListener.remove()
     }
     
     // MARK: - ACTIONS

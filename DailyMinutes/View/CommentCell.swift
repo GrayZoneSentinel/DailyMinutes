@@ -21,6 +21,7 @@ class CommentCell: UITableViewCell {
     // MARK: - CLASS METHODS
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundColor = UIColor.init(white: 1, alpha: 0)
     }
     
     // MARK: - FUNCTIONS

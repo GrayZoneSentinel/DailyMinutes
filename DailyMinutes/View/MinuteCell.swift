@@ -50,7 +50,6 @@ class MinuteCell: UITableViewCell {
         let timestamp = formatter.string(from: minute.timestamp)
         timestampLbl.text = timestamp
     }
-    
     @objc func likeTapped() {
         // The function to update the DB register with an increment of one like for the relevant Minute
         Firestore.firestore().collection(MINUTES_COL_REF).document(minute.documentId!).updateData([NUM_LIKES : minute.numLikes + 1])
