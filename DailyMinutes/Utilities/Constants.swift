@@ -10,6 +10,7 @@ import Foundation
 
 let MINUTES_COL_REF = "Minutes"
 let USERS_REF = "Users"
+let COMMENTS_COL_REF = "Comments"
 
 let USERNAME = "username"
 let EVALUACION = "evaluacion"
