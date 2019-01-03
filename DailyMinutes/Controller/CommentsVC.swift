@@ -62,6 +62,8 @@ class CommentsVC: UIViewController {
             if let user = Auth.auth().currentUser?.displayName {
                 username = user
             }
+        // Keyboard functionality
+        self.view.bindToKeyboard()
     }
     override func viewDidDisappear(_ animated: Bool) {
         commentListener.remove()
@@ -103,8 +105,11 @@ class CommentsVC: UIViewController {
         }) { (object, error) in
             if let error = error {
                 debugPrint("An error occurred while running the transaction: \(error.localizedDescription)")
+            } else {
+                self.commentTxt.text = ""
+                // Once the editing is finished and the send button pressed, the keyboard should be dismissed
+                self.commentTxt.resignFirstResponder()
             }
-            self.commentTxt.text = ""
         }
     }
 }
