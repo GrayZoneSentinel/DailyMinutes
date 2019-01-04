@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		57C73B786FD38E19C40EB9D0 /* Pods_DailyMinutes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E566FDEB4E7EF33F5FCA44 /* Pods_DailyMinutes.framework */; };
+		9452A48321DFE19D00007CB4 /* EditCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9452A48221DFE19D00007CB4 /* EditCommentVC.swift */; };
 		9461DA6721DD39B600D8D5FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9461DA6621DD39B600D8D5FE /* Assets.xcassets */; };
 		9461DA6921DD3A1500D8D5FE /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9461DA6821DD3A1500D8D5FE /* KeyboardBoundView.swift */; };
 		9461DA6D21DD4A9000D8D5FE /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9461DA6C21DD4A9000D8D5FE /* SignInVC.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		16E566FDEB4E7EF33F5FCA44 /* Pods_DailyMinutes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyMinutes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9452A48221DFE19D00007CB4 /* EditCommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCommentVC.swift; sourceTree = "<group>"; };
 		9461DA6621DD39B600D8D5FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9461DA6821DD3A1500D8D5FE /* KeyboardBoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
 		9461DA6C21DD4A9000D8D5FE /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				9461DA6C21DD4A9000D8D5FE /* SignInVC.swift */,
 				9461DA6E21DD4BFA00D8D5FE /* CreateUserVC.swift */,
 				949D1E1621DE2A8400833E16 /* CommentsVC.swift */,
+				9452A48221DFE19D00007CB4 /* EditCommentVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9452A48321DFE19D00007CB4 /* EditCommentVC.swift in Sources */,
 				9464AEB921DA56C6003C6500 /* MainVC.swift in Sources */,
 				9464AED521DA9196003C6500 /* Minute.swift in Sources */,
 				9461DA6D21DD4A9000D8D5FE /* SignInVC.swift in Sources */,

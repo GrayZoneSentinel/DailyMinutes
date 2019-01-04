@@ -139,6 +139,69 @@ extension CommentsVC: CommentsActionsDelegate {
             print(user)
             print(comment.username)
         */
+        // Alert Controller
+        let alert = UIAlertController(title: "Edit or delete comment", message: "", preferredStyle: .actionSheet)
+        // Alert controller actions
+        let deleteAction = UIAlertAction(title: "Delete comment", style: .destructive) { (deleteAction) in
+            /* Delete the coment if there is no need to update the number of comments, in this case it requires a transaction to be able to decrease the number of comments
+            self.firestore.collection(MINUTES_COL_REF).document(self.minute.documentId).collection(COMMENTS_COL_REF).document(comment.documentId).delete(completion: { (error) in
+                if let error = error {
+                    debugPrint("An error occurred while deleting the comment: \(error.localizedDescription)")
+                } else {
+                    alert.dismiss(animated: true, completion: nil)
+                }
+            })*/
+            self.firestore.runTransaction({ (transaction, errorPointer) -> Any? in
+                
+                let minuteDocument: DocumentSnapshot
+                do {
+                    try minuteDocument = transaction.getDocument(Firestore.firestore().collection(MINUTES_COL_REF).document(self.minute.documentId))
+                } catch let error as NSError {
+                    debugPrint("An error occurred while fetching the minute document: \(error.localizedDescription)")
+                    return nil
+                }
+                
+                guard let oldNumComments = minuteDocument.data()?[NUM_COMMENTS] as? Int else { return nil }
+                
+                transaction.updateData([
+                    NUM_COMMENTS : oldNumComments - 1
+                    ], forDocument: self.minuteRef)
+                
+                let commentRef = self.firestore.collection(MINUTES_COL_REF).document(self.minute.documentId).collection(COMMENTS_COL_REF).document(comment.documentId)
 
+                transaction.deleteDocument(commentRef)
+                
+                return nil
+                
+            }) { (object, error) in
+                if let error = error {
+                    debugPrint("An error occurred while performing the deletion transaction of the comment: \(error.localizedDescription)")
+                } else {
+                    alert.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+        let editAction = UIAlertAction(title: "Edit comment", style: .default) { (editAction) in
+            // Edit the comment
+            self.performSegue(withIdentifier: "goToEditComment", sender: (comment: comment, minute: self.minute))
+            alert.dismiss(animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        // Alert controller actions' declaration
+        alert.addAction(editAction)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        // Alert controller call
+        present(alert, animated: true, completion: nil)
+    }
+    // DELEGATE EXTENSION FUNCTIONS
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToEditComment" {
+            if let destinationVC = segue.destination as? EditCommentVC {
+                if let commentData = sender as? (comment: Comment, minute: Minute) {
+                    destinationVC.commentData = commentData
+                }
+            }
+        }
     }
 }
