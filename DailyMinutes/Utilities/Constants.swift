@@ -20,3 +20,5 @@ let NUM_LIKES = "numLikes"
 let NUM_COMMENTS = "numComentarios"
 let DATE_CREATED = "dateCreated"
 let COMMENT_TEXT = "commentTxt"
+
+let USER_ID = "userId"

@@ -32,6 +32,7 @@ class NewMinuteVC: UIViewController, UITextViewDelegate {
         
         usernameLbl.text = Auth.auth().currentUser?.displayName
         
+        
     }
     
     // DELEGATIONS
@@ -64,7 +65,9 @@ class NewMinuteVC: UIViewController, UITextViewDelegate {
             EVALUACION : selectedValoracion,
             COMENTARIO : minuteTxt.text,
             NUM_LIKES : 0,
-            NUM_COMMENTS : 0
+            NUM_COMMENTS : 0,
+            // To make possible the editing and deletion of the Minutes and Comments wrote by the user
+            USER_ID : Auth.auth().currentUser?.uid ?? ""
         ]) { (error) in
             if let error = error {
                 debugPrint("An error arose while adding the Minute: \(error)")

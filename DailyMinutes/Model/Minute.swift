@@ -17,14 +17,17 @@ class Minute {
     private(set) var numComments: Int!
     private(set) var numLikes: Int!
     private(set) var documentId: String!
+    // To edit Minutes and Comments
+    private(set) var userId: String!
     
-    init(username: String, timestamp: Date, minuteText: String, numComments: Int, numLikes: Int, documentId: String) {
+    init(username: String, timestamp: Date, minuteText: String, numComments: Int, numLikes: Int, documentId: String, userId: String) {
         self.username = username
         self.timestamp = timestamp
         self.minuteText = minuteText
         self.numComments = numComments
         self.numLikes = numLikes
         self.documentId = documentId
+        self.userId = userId
     }
     
     // FUNCTION TO DETERMINE THE SNAPSHOT
@@ -41,8 +44,9 @@ class Minute {
             let numComments = data[NUM_COMMENTS] as? Int ?? 0
             let numLikes = data[NUM_LIKES] as? Int ?? 0
             let documentId = document.documentID
+            let userId = data[USER_ID] as? String ?? ""
             
-            let newMinute = Minute(username: username, timestamp: timestamp, minuteText: minute, numComments: numComments, numLikes: numLikes, documentId: documentId)
+            let newMinute = Minute(username: username, timestamp: timestamp, minuteText: minute, numComments: numComments, numLikes: numLikes, documentId: documentId, userId: userId)
             
             minutes.append(newMinute)
             

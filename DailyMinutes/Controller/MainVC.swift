@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 
-
 enum DayEvaluation : String {
     case bad =  "Malo"
     case good = "Bueno"
@@ -33,10 +32,8 @@ class MainVC: UIViewController {
         // authentication variables
             private var handleAuth: AuthStateDidChangeListenerHandle?
     
-    
     // MARK: - CLASS METHODS
         override func viewWillAppear(_ animated: Bool) {
-        
             handleAuth = Auth.auth().addStateDidChangeListener({ (auth, user) in
                 if user == nil {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -47,7 +44,6 @@ class MainVC: UIViewController {
                 }
             })
         }
-    
         override func viewDidLoad() {
             super.viewDidLoad()
             // UI SETUP
@@ -61,14 +57,12 @@ class MainVC: UIViewController {
             // DB REFERENCES
                 minutesCollectionRef = Firestore.firestore().collection(MINUTES_COL_REF)
         }
-    
         override func viewWillDisappear(_ animated: Bool) {
             // LISTENERS REMOVALS
             if minutesListener != nil {
                 minutesListener.remove()
             }
         }
-    
     
     // MARK: - FUNCTIONS
         func setMinutesListener() {
@@ -104,26 +98,18 @@ class MainVC: UIViewController {
             }
         }
 
-    
     // MARK: - ACTIONS
         @IBAction func evaluationSegmentChanged(_ sender: Any) {
             switch evaluationSegmentCtr.selectedSegmentIndex {
-            case 0:
-                evaluationSegment = DayEvaluation.all.rawValue
-            case 1:
-                evaluationSegment = DayEvaluation.bad.rawValue
-            case 2:
-                evaluationSegment = DayEvaluation.normal.rawValue
-            case 3:
-                evaluationSegment = DayEvaluation.good.rawValue
-            default:
-                evaluationSegment = DayEvaluation.all.rawValue
-                
+                case 0: evaluationSegment = DayEvaluation.all.rawValue
+                case 1: evaluationSegment = DayEvaluation.bad.rawValue
+                case 2: evaluationSegment = DayEvaluation.normal.rawValue
+                case 3: evaluationSegment = DayEvaluation.good.rawValue
+                default: evaluationSegment = DayEvaluation.all.rawValue
             }
             minutesListener.remove()
             setMinutesListener()
         }
-    
         @IBAction func logoutBtnTapped(_ sender: Any) {
             let firebaseAuth = Auth.auth()
             do {
@@ -134,8 +120,7 @@ class MainVC: UIViewController {
         }
 }
 
-
-// MARK: - EXTENSIONS
+// MARK: - TABLE VIEW EXTENSION
 extension MainVC: UITableViewDelegate, UITableViewDataSource {
     // Number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -144,7 +129,8 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     // Cell for row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "minuteCell", for: indexPath) as? MinuteCell {
-            cell.configureCell(minute: minutes[indexPath.row])
+            // Include the delegate parameter in the configureCell function
+            cell.configureCell(minute: minutes[indexPath.row], delegate: self)
             return cell
         } else { return UITableViewCell() }
     }
@@ -153,6 +139,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
         let segueIdentifier = "toCommentsVC"
         performSegue(withIdentifier: segueIdentifier, sender: minutes[indexPath.row])
     }
+    // Prepare for segue triggered within the selected row
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let segueIdentifier = "toCommentsVC"
         if segue.identifier == segueIdentifier {
@@ -163,5 +150,13 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         }
+    }
+}
+// MARK: - MINUTE DELEGATE EXTENSION
+extension MainVC: MinuteDelegate {
+    func minuteActionsTapped(minute: Minute) {
+        // Here is where we create the alert to handle the deletion or the editing action
+        // Testing -> print(minute.username)
+        
     }
 }

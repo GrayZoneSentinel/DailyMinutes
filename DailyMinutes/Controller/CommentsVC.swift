@@ -96,7 +96,8 @@ class CommentsVC: UIViewController {
             transaction.setData([
                 USERNAME : self.username,
                 TIMESTAMP : FieldValue.serverTimestamp(),
-                COMMENT_TEXT : commentTxt
+                COMMENT_TEXT : commentTxt,
+                USER_ID : Auth.auth().currentUser?.uid ?? ""
                 ],
                 forDocument: newCommentRef)
             
@@ -114,7 +115,7 @@ class CommentsVC: UIViewController {
     }
 }
 
-// MARK: - EXTENSIONS
+// MARK: - TABLE VIEW EXTENSION
 extension CommentsVC: UITableViewDelegate, UITableViewDataSource {
     // Number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -123,9 +124,21 @@ extension CommentsVC: UITableViewDelegate, UITableViewDataSource {
     // Cell for row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as? CommentCell {
-            cell.configureCell(comment: comments[indexPath.row])
+            cell.configureCell(comment: comments[indexPath.row], delegate: self)
             return cell
         }
         return UITableViewCell()
+    }
+}
+// MARK: - DELEGATE EXTENSION
+extension CommentsVC: CommentsActionsDelegate {
+    func commentActionBtnTapped(comment: Comment) {
+        // Here is where we create the alert to handle the deletion or the editing action
+        /* Testing ->
+            guard let user = comment.username else { return }
+            print(user)
+            print(comment.username)
+        */
+
     }
 }
