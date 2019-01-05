@@ -58,9 +58,10 @@ class NewMinuteVC: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func saveBtn(_ sender: UIButton) {
-        guard let username = usernameLbl.text else { return }
+//        guard let username = usernameLbl.text else { return }
         Firestore.firestore().collection(MINUTES_COL_REF).addDocument(data: [
-            USERNAME : username,
+//            USERNAME : username,
+            USERNAME : Auth.auth().currentUser?.displayName ?? "",
             TIMESTAMP : FieldValue.serverTimestamp(),
             EVALUACION : selectedValoracion,
             COMENTARIO : minuteTxt.text,

@@ -42,6 +42,6 @@ class EditCommentVC: UIViewController {
         }
     }
     
-    // MARK: - FUNCTIONS
+     // MARK: - FUNCTIONS
     
 }

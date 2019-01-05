@@ -156,7 +156,58 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
 extension MainVC: MinuteDelegate {
     func minuteActionsTapped(minute: Minute) {
         // Here is where we create the alert to handle the deletion or the editing action
-        // Testing -> print(minute.username)
-        
+                /* Testing:
+                            guard let minuteUser = minute.username else { return }
+                            print(minuteUser)
+                */
+        // Declare the Alert View Controller for the actions regarding the relevant Minute
+        let alert = UIAlertController(title: "Delete minute", message: "Are you sure that you want to delete the minute and it's relevant comments?", preferredStyle: .actionSheet)
+        // Declare the actions of the Alert Controller
+        let deleteAlert = UIAlertAction(title: "Delete", style: .destructive) { (deleteAction) in
+            
+            self.delete(collection: Firestore.firestore().collection(MINUTES_COL_REF).document(minute.documentId).collection(COMMENTS_COL_REF), completion: { (error) in
+                if let error = error {
+                    debugPrint("An error occurred while deleting the comments comprised within the minute which is tend to delete: \(error.localizedDescription)")
+                } else {
+                    Firestore.firestore().collection(MINUTES_COL_REF).document(minute.documentId).delete(completion: { (error) in
+                        if let error = error {
+                            debugPrint("An error occurred while deleting the minute: \(error.localizedDescription)")
+                        } else {
+                            alert.dismiss(animated: true, completion: nil)
+                        }
+                    })
+                }
+            })
+        }
+        let cancelAlert = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        // Append the actions to the Alert Controller
+        alert.addAction(deleteAlert)
+        alert.addAction(cancelAlert)
+        // Present the Alert Controller
+        present(alert, animated: true, completion: nil)
+    }
+    // DELEGATE EXTENSION FUNCTIONS
+    // Function to delete the minute and it's corresponding comments to avoid the persistence of the comments once the minute is erased
+    func delete(collection: CollectionReference, batchSize: Int = 100, completion: @escaping(Error?) -> ()) {
+        collection.limit(to: batchSize).getDocuments { (docset, error) in
+            guard let docset = docset else {
+                completion(error)
+                return
+            }
+            guard docset.count > 0 else {
+                completion(nil)
+                return
+            }
+            let batch = collection.firestore.batch()
+            docset.documents.forEach { batch.deleteDocument($0.reference) }
+            
+            batch.commit { (batchError) in
+                if let batchError = batchError {
+                    completion( batchError )
+                } else {
+                    self.delete(collection: collection, batchSize: batchSize, completion: completion)
+                }
+            }
+        }
     }
 }

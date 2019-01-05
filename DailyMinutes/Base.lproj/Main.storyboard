@@ -32,16 +32,16 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n6l-G4-mSt">
-                                <rect key="frame" x="16" y="146" width="343" height="485"/>
+                                <rect key="frame" x="0.0" y="146" width="375" height="521"/>
                                 <color key="backgroundColor" red="0.45896911620000003" green="0.45829498769999999" blue="0.4791768193" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="minuteCell" rowHeight="123" id="9Pe-6g-osf" customClass="MinuteCell" customModule="DailyMinutes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="123"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Pe-6g-osf" id="opf-4N-K4l">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="122.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="122.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JqG-SH-oNF">
@@ -51,19 +51,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIa-el-oKT">
-                                                    <rect key="frame" x="260" y="21" width="68" height="16"/>
+                                                    <rect key="frame" x="292" y="21" width="68" height="16"/>
                                                     <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Here is the text of the relevant daily minute..." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQx-H5-Rjz">
-                                                    <rect key="frame" x="15" y="45" width="313" height="46"/>
+                                                    <rect key="frame" x="15" y="45" width="345" height="46"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                                     <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" image="starIconFilled" translatesAutoresizingMaskIntoConstraints="NO" id="PqF-dG-5K1">
-                                                    <rect key="frame" x="298" y="98" width="15" height="15"/>
+                                                    <rect key="frame" x="330" y="98" width="15" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="eTR-Rk-XLU"/>
                                                         <constraint firstAttribute="width" constant="15" id="jlX-K6-oEy"/>
@@ -84,13 +84,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imF-jN-xob">
-                                                    <rect key="frame" x="314" y="97.5" width="14" height="16"/>
+                                                    <rect key="frame" x="346" y="97.5" width="14" height="16"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="optionsImage" translatesAutoresizingMaskIntoConstraints="NO" id="epz-N1-CIl">
-                                                    <rect key="frame" x="161.5" y="103" width="20" height="20"/>
+                                                    <rect key="frame" x="177.5" y="103" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="BQ2-xh-8kF"/>
                                                         <constraint firstAttribute="width" constant="20" id="Cu9-hH-CdP"/>
@@ -102,11 +102,13 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="lIa-el-oKT" secondAttribute="trailing" id="743-8L-ffM"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="jQx-H5-Rjz" secondAttribute="trailing" id="79O-I3-Pbi"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="imF-jN-xob" secondAttribute="trailing" id="9r7-vV-C7N"/>
+                                                <constraint firstItem="lIa-el-oKT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JqG-SH-oNF" secondAttribute="trailing" constant="8" symbolic="YES" id="A29-EF-RDv"/>
                                                 <constraint firstItem="Oc1-iO-74T" firstAttribute="leading" secondItem="opf-4N-K4l" secondAttribute="leadingMargin" id="Bre-e1-t52"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="naf-ks-WIQ" secondAttribute="bottom" id="C3L-cG-mNc"/>
                                                 <constraint firstItem="naf-ks-WIQ" firstAttribute="leading" secondItem="Oc1-iO-74T" secondAttribute="trailing" constant="2" id="NWr-pw-1u5"/>
                                                 <constraint firstItem="Oc1-iO-74T" firstAttribute="top" secondItem="jQx-H5-Rjz" secondAttribute="bottom" constant="6" id="P8g-qw-tqH"/>
                                                 <constraint firstItem="JqG-SH-oNF" firstAttribute="leading" secondItem="opf-4N-K4l" secondAttribute="leadingMargin" id="PKd-0C-KPo"/>
+                                                <constraint firstItem="epz-N1-CIl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="naf-ks-WIQ" secondAttribute="trailing" constant="8" symbolic="YES" id="YSj-6c-vOo"/>
                                                 <constraint firstItem="lIa-el-oKT" firstAttribute="top" secondItem="opf-4N-K4l" secondAttribute="topMargin" constant="10" id="eYm-yO-iRB"/>
                                                 <constraint firstItem="jQx-H5-Rjz" firstAttribute="top" secondItem="JqG-SH-oNF" secondAttribute="bottom" constant="8" id="jso-X3-Kxp"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="imF-jN-xob" secondAttribute="bottom" constant="-1.5" id="lD3-He-hYd"/>
@@ -135,14 +137,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="n6l-G4-mSt" firstAttribute="top" secondItem="Drf-VA-30e" secondAttribute="bottom" constant="2" id="36f-Yg-YvQ"/>
-                            <constraint firstItem="n6l-G4-mSt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="HdK-X0-v2P"/>
+                            <constraint firstItem="n6l-G4-mSt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HdK-X0-v2P"/>
                             <constraint firstItem="n6l-G4-mSt" firstAttribute="top" secondItem="Drf-VA-30e" secondAttribute="bottom" constant="2" id="KgW-XB-1Cd"/>
                             <constraint firstItem="Drf-VA-30e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MEb-B4-eos"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="n6l-G4-mSt" secondAttribute="bottom" constant="36" id="MqE-bL-Pdf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="n6l-G4-mSt" secondAttribute="bottom" id="MqE-bL-Pdf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Drf-VA-30e" secondAttribute="trailing" id="Uy4-7t-kC6"/>
                             <constraint firstItem="Drf-VA-30e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hAI-st-ewA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="n6l-G4-mSt" secondAttribute="trailing" constant="16" id="sPg-ve-pBy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="n6l-G4-mSt" secondAttribute="trailing" id="sPg-ve-pBy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
