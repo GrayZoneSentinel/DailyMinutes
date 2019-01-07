@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 enum DayEvaluation : String {
     case bad =  "Malo"
@@ -51,6 +52,10 @@ class MainVC: UIViewController {
                 minutesTableView.rowHeight = UITableView.automaticDimension
                 minutesTableView.tableFooterView = UIView()
                 minutesTableView.backgroundColor = UIColor.init(white: 1, alpha: 0)
+            // SVProgressHUD setup
+                SVProgressHUD.setBackgroundColor(UIColor.init(white: 0, alpha: 0))
+                SVProgressHUD.setForegroundColor(UIColor.orange)
+                SVProgressHUD.setBackgroundLayerColor(UIColor.init(white: 1, alpha: 0.4))
             // DELEGATIONS
                 minutesTableView.delegate = self
                 minutesTableView.dataSource = self
@@ -66,6 +71,7 @@ class MainVC: UIViewController {
     
     // MARK: - FUNCTIONS
         func setMinutesListener() {
+            SVProgressHUD.show()
             if evaluationSegment == DayEvaluation.all.rawValue {
                 minutesListener = minutesCollectionRef
                     .order(by: TIMESTAMP, descending: true)
@@ -77,6 +83,7 @@ class MainVC: UIViewController {
                             // Bring the class function declared in Minute.swift to retrieve the data
                             self.minutes = Minute.parseDate(snapshot: snapshot)
                             self.minutesTableView.reloadData()
+                            SVProgressHUD.dismiss()
                         }
                     }
             } else {
@@ -91,8 +98,8 @@ class MainVC: UIViewController {
                             
                             // Bring the class function declared in Minute.swift to retrieve the data
                             self.minutes = Minute.parseDate(snapshot: snapshot)
-                            
                             self.minutesTableView.reloadData()
+                            SVProgressHUD.dismiss()
                         }
                     }
             }
@@ -111,9 +118,11 @@ class MainVC: UIViewController {
             setMinutesListener()
         }
         @IBAction func logoutBtnTapped(_ sender: Any) {
+            SVProgressHUD.show()
             let firebaseAuth = Auth.auth()
             do {
                 try firebaseAuth.signOut()
+                SVProgressHUD.dismiss()
             } catch let error as NSError {
                     debugPrint("An error occurred while loging out: \(error.localizedDescription)")
             }

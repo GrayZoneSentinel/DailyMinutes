@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class CreateUserVC: UIViewController {
 
@@ -23,7 +24,10 @@ class CreateUserVC: UIViewController {
     // MARK : - METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // SVProgressHUD setup
+            SVProgressHUD.setBackgroundColor(UIColor.init(white: 0, alpha: 0))
+            SVProgressHUD.setForegroundColor(UIColor.orange)
+            SVProgressHUD.setBackgroundLayerColor(UIColor.init(white: 1, alpha: 0.4))
     }
     
     
@@ -32,6 +36,8 @@ class CreateUserVC: UIViewController {
         guard let username = usernameTxt.text else { return }
         guard let email = emailTxt.text else { return }
         guard let password = passwordTxt.text else { return }
+        
+        SVProgressHUD.show()
         
         Auth.auth().createUser(withEmail: email, password: password) { (currentUser, error) in
             if let error = error {
@@ -53,6 +59,7 @@ class CreateUserVC: UIViewController {
                     if let error = error {
                         debugPrint("An error occurred while creating the new user: \(error.localizedDescription) ")
                     } else {
+                        SVProgressHUD.dismiss()
                         self.dismiss(animated: true, completion: nil)
                     }
             })
