@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class CreateUserVC: UIViewController {
+class CreateUserVC: ScrollableViewController {
 
     // MARK : - OUTLETS
     @IBOutlet weak var usernameTxt: UITextField!
@@ -22,6 +22,12 @@ class CreateUserVC: UIViewController {
     // MARK : - VARIABLES
     
     // MARK : - METHODS
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.usernameTxt.delegate = self
+        self.emailTxt.delegate = self
+        self.passwordTxt.delegate = self
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // SVProgressHUD setup

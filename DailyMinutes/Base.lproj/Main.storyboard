@@ -403,7 +403,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuenta algo de tu día" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYc-N5-wcK">
-                                <rect key="frame" x="66" y="289" width="138.5" height="20"/>
+                                <rect key="frame" x="66" y="289" width="139" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="eFf-KL-YMd"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="gg8-cP-NIm"/>
@@ -431,24 +431,24 @@
                         <constraints>
                             <constraint firstItem="GvQ-r6-xF8" firstAttribute="top" secondItem="gUv-61-Qod" secondAttribute="bottom" constant="95" id="0tH-bg-ttJ"/>
                             <constraint firstItem="LlF-IQ-IUI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0rR-8k-5Ra" secondAttribute="leading" symbolic="YES" id="2W3-Lg-9qW"/>
-                            <constraint firstItem="gUv-61-Qod" firstAttribute="leading" secondItem="K1U-kd-iNx" secondAttribute="leading" id="3cV-d1-6UC"/>
                             <constraint firstItem="f1T-t2-Oww" firstAttribute="top" secondItem="DKj-OZ-TJN" secondAttribute="bottom" constant="3" id="4Ij-2Z-ycO"/>
                             <constraint firstItem="GvQ-r6-xF8" firstAttribute="top" secondItem="f1T-t2-Oww" secondAttribute="bottom" constant="36" id="5GM-PX-k08"/>
                             <constraint firstItem="0rR-8k-5Ra" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tYc-N5-wcK" secondAttribute="trailing" symbolic="YES" id="76f-iq-SAg"/>
                             <constraint firstItem="f1T-t2-Oww" firstAttribute="width" secondItem="GvQ-r6-xF8" secondAttribute="width" id="AYY-b3-5YV"/>
-                            <constraint firstItem="gUv-61-Qod" firstAttribute="trailing" secondItem="K1U-kd-iNx" secondAttribute="trailing" id="GTc-wg-phS"/>
+                            <constraint firstItem="0rR-8k-5Ra" firstAttribute="trailing" secondItem="K1U-kd-iNx" secondAttribute="trailing" constant="66" id="BVe-mR-spq"/>
+                            <constraint firstItem="K1U-kd-iNx" firstAttribute="leading" secondItem="0rR-8k-5Ra" secondAttribute="leading" constant="66" id="CVu-jV-uqx"/>
+                            <constraint firstItem="gUv-61-Qod" firstAttribute="top" secondItem="K1U-kd-iNx" secondAttribute="bottom" constant="22" id="G0C-El-kqb"/>
                             <constraint firstItem="GvQ-r6-xF8" firstAttribute="trailing" secondItem="gUv-61-Qod" secondAttribute="trailing" id="JV4-aV-A7b"/>
+                            <constraint firstItem="K1U-kd-iNx" firstAttribute="top" secondItem="0rR-8k-5Ra" secondAttribute="top" constant="24" id="JZD-l3-Uyg"/>
                             <constraint firstItem="GvQ-r6-xF8" firstAttribute="top" secondItem="tYc-N5-wcK" secondAttribute="bottom" constant="1" id="Jwn-4D-Gft"/>
+                            <constraint firstItem="gUv-61-Qod" firstAttribute="leading" secondItem="K1U-kd-iNx" secondAttribute="leading" id="OGt-cN-s88"/>
                             <constraint firstItem="GvQ-r6-xF8" firstAttribute="leading" secondItem="gUv-61-Qod" secondAttribute="leading" id="Rov-7b-Mht"/>
-                            <constraint firstItem="K1U-kd-iNx" firstAttribute="top" secondItem="0rR-8k-5Ra" secondAttribute="top" constant="24" id="WCl-7F-DO6"/>
+                            <constraint firstItem="gUv-61-Qod" firstAttribute="trailing" secondItem="K1U-kd-iNx" secondAttribute="trailing" id="UGi-Ac-CaX"/>
                             <constraint firstItem="DKj-OZ-TJN" firstAttribute="top" secondItem="gUv-61-Qod" secondAttribute="bottom" constant="8" id="XLj-Ge-DOT"/>
                             <constraint firstItem="tYc-N5-wcK" firstAttribute="leading" secondItem="f1T-t2-Oww" secondAttribute="leading" id="ZQq-ld-um0"/>
                             <constraint firstItem="LlF-IQ-IUI" firstAttribute="trailing" secondItem="GvQ-r6-xF8" secondAttribute="trailing" id="cJW-wS-YSe"/>
                             <constraint firstItem="f1T-t2-Oww" firstAttribute="centerX" secondItem="GvQ-r6-xF8" secondAttribute="centerX" id="d5E-dV-RaL"/>
                             <constraint firstItem="tYc-N5-wcK" firstAttribute="top" secondItem="f1T-t2-Oww" secondAttribute="bottom" constant="15" id="d9w-va-u4o"/>
-                            <constraint firstItem="0rR-8k-5Ra" firstAttribute="trailing" secondItem="K1U-kd-iNx" secondAttribute="trailing" constant="66" id="ipI-ho-exy"/>
-                            <constraint firstItem="K1U-kd-iNx" firstAttribute="leading" secondItem="0rR-8k-5Ra" secondAttribute="leading" constant="66" id="ngx-EW-aiS"/>
-                            <constraint firstItem="gUv-61-Qod" firstAttribute="top" secondItem="K1U-kd-iNx" secondAttribute="bottom" constant="22" id="oVo-6D-85j"/>
                             <constraint firstItem="0rR-8k-5Ra" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DKj-OZ-TJN" secondAttribute="trailing" symbolic="YES" id="q7e-6f-lXo"/>
                             <constraint firstItem="DKj-OZ-TJN" firstAttribute="leading" secondItem="gUv-61-Qod" secondAttribute="leading" id="qwM-Zj-vlI"/>
                             <constraint firstItem="LlF-IQ-IUI" firstAttribute="top" secondItem="GvQ-r6-xF8" secondAttribute="bottom" constant="-176" id="sFe-3F-bzI"/>
@@ -464,7 +464,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhr-2o-7my" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="-960"/>
+            <point key="canvasLocation" x="1516" y="-960.2698650674663"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="za0-oU-y3V">

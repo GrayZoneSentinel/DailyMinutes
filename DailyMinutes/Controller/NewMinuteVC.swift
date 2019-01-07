@@ -20,7 +20,6 @@ class NewMinuteVC: UIViewController, UITextViewDelegate {
     // VARIABLES
     private var selectedValoracion = DayEvaluation.normal.rawValue
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,9 +29,7 @@ class NewMinuteVC: UIViewController, UITextViewDelegate {
         minuteTxt.textColor = UIColor.lightGray
         minuteTxt.delegate = self
         
-        usernameLbl.text = Auth.auth().currentUser?.displayName
-        
-        
+        usernameLbl.text = Auth.auth().currentUser?.displayName       
     }
     
     // DELEGATIONS

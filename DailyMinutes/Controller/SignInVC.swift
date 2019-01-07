@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class SignInVC: UIViewController {
+class SignInVC: ScrollableViewController {
 
     // MARK: - OUTLETS
     @IBOutlet weak var usernameTxt: UITextField!
@@ -19,38 +19,35 @@ class SignInVC: UIViewController {
     @IBOutlet weak var enterBtn: UIButton!
     @IBOutlet weak var forgetPasswordBtn: UIButton!
     
-    
     // VARIABLES
     
-    
-    
     // MARK: - METHODS
+    override func viewWillAppear(_ animated: Bool) {
+        self.usernameTxt.delegate = self
+        self.passwordTxt.delegate = self
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // SVProgressHUD setup
             SVProgressHUD.setBackgroundColor(UIColor.init(white: 0, alpha: 0))
             SVProgressHUD.setForegroundColor(UIColor.orange)
             SVProgressHUD.setBackgroundLayerColor(UIColor.init(white: 1, alpha: 0.4))
-        
     }
-    
 
     // MARK: - ACTIONS
     @IBAction func enterBtnTapped(_ sender: Any) {
-        
         // Spinner show
         SVProgressHUD.show()
-        
+        // DB writing
         guard let userEmail = usernameTxt.text else { return }
         guard let userPassword = passwordTxt.text else { return }
         Auth.auth().signIn(withEmail: userEmail, password: userPassword) { (user, error) in
             if let error = error {
                 debugPrint("An error occurred while login: \(error.localizedDescription)")
             } else {
-                
                 // Spinner dissmisal
                 SVProgressHUD.dismiss()
-                
+                // VC dismissal
                 self.dismiss(animated: true, completion: nil)
             }
         }

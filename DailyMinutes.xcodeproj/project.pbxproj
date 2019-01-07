@@ -113,10 +113,10 @@
 		9464AECA21DA5DCC003C6500 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9464AEB821DA56C6003C6500 /* MainVC.swift */,
-				9464AEC821DA5DAD003C6500 /* NewMinuteVC.swift */,
 				9461DA6C21DD4A9000D8D5FE /* SignInVC.swift */,
 				9461DA6E21DD4BFA00D8D5FE /* CreateUserVC.swift */,
+				9464AEB821DA56C6003C6500 /* MainVC.swift */,
+				9464AEC821DA5DAD003C6500 /* NewMinuteVC.swift */,
 				949D1E1621DE2A8400833E16 /* CommentsVC.swift */,
 				9452A48221DFE19D00007CB4 /* EditCommentVC.swift */,
 			);
