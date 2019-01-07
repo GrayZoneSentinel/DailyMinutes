@@ -26,6 +26,7 @@
 		949D1E1721DE2A8400833E16 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D1E1621DE2A8400833E16 /* CommentsVC.swift */; };
 		949D1E1921DE33C800833E16 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D1E1821DE33C800833E16 /* CommentCell.swift */; };
 		949D1E1B21DE373400833E16 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949D1E1A21DE373400833E16 /* Comment.swift */; };
+		94FD01AC21E3CEE30058D9B9 /* TasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FD01AB21E3CEE30058D9B9 /* TasksVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		949D1E1621DE2A8400833E16 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
 		949D1E1821DE33C800833E16 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		949D1E1A21DE373400833E16 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		94FD01AB21E3CEE30058D9B9 /* TasksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksVC.swift; sourceTree = "<group>"; };
 		C49F7E1CCA00C08FBED90B55 /* Pods-DailyMinutes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyMinutes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyMinutes/Pods-DailyMinutes.debug.xcconfig"; sourceTree = "<group>"; };
 		FA0554A6E5424595EE027BEF /* Pods-DailyMinutes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyMinutes.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyMinutes/Pods-DailyMinutes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,10 +117,8 @@
 			children = (
 				9461DA6C21DD4A9000D8D5FE /* SignInVC.swift */,
 				9461DA6E21DD4BFA00D8D5FE /* CreateUserVC.swift */,
-				9464AEB821DA56C6003C6500 /* MainVC.swift */,
-				9464AEC821DA5DAD003C6500 /* NewMinuteVC.swift */,
-				949D1E1621DE2A8400833E16 /* CommentsVC.swift */,
-				9452A48221DFE19D00007CB4 /* EditCommentVC.swift */,
+				94FD01A921E3CE700058D9B9 /* Minutes */,
+				94FD01AA21E3CE920058D9B9 /* Tasks */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -149,6 +149,25 @@
 				940205A021E3AAE300D488F8 /* ScrollableViewControllerSuperClass.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		94FD01A921E3CE700058D9B9 /* Minutes */ = {
+			isa = PBXGroup;
+			children = (
+				9464AEB821DA56C6003C6500 /* MainVC.swift */,
+				9464AEC821DA5DAD003C6500 /* NewMinuteVC.swift */,
+				949D1E1621DE2A8400833E16 /* CommentsVC.swift */,
+				9452A48221DFE19D00007CB4 /* EditCommentVC.swift */,
+			);
+			path = Minutes;
+			sourceTree = "<group>";
+		};
+		94FD01AA21E3CE920058D9B9 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				94FD01AB21E3CEE30058D9B9 /* TasksVC.swift */,
+			);
+			path = Tasks;
 			sourceTree = "<group>";
 		};
 		FBB24104DC4C8927C4060419 /* Frameworks */ = {
@@ -294,6 +313,7 @@
 			files = (
 				9452A48321DFE19D00007CB4 /* EditCommentVC.swift in Sources */,
 				9464AEB921DA56C6003C6500 /* MainVC.swift in Sources */,
+				94FD01AC21E3CEE30058D9B9 /* TasksVC.swift in Sources */,
 				9464AED521DA9196003C6500 /* Minute.swift in Sources */,
 				9461DA6D21DD4A9000D8D5FE /* SignInVC.swift in Sources */,
 				940205A121E3AAE300D488F8 /* ScrollableViewControllerSuperClass.swift in Sources */,
