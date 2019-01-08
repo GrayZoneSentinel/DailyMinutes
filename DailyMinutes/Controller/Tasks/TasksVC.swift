@@ -14,16 +14,13 @@ class TasksVC: UITableViewController {
     @IBOutlet weak var addBtn: UIBarButtonItem!
     
     // MARK: - VARIABLES
-    
         // var itemArray = ["Find Mike", "Buy Eggos", "Destroy Demogorgon"]
         // convert the hardcoded itemArray into an array of Items objects created in the Model
         var itemArray = [Item]()
-    
         // User defaults -- Singleton
             // let defaults = UserDefaults.standard
             // Create our own user plist (instead of using User Defaults. Among other things because it is not working due to
             // the Firebase previous configuration for the Minutes section :: CODE REFERENCE -- AA1
-    
         // Data file path to the plist whereby the user defaults are stored
         let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
     
@@ -33,15 +30,16 @@ class TasksVC: UITableViewController {
         super.viewDidLoad()
         
         // Populate the itemArray
-        let newItem = Item()
-        newItem.title = "Find Mike"
-        itemArray.append(newItem)
-        let newItem2 = Item()
-        newItem2.title = "Buy Eggos"
-        itemArray.append(newItem2)
-        let newItem3 = Item()
-        newItem3.title = "Destroy Demogorgon"
-        itemArray.append(newItem3)
+        // CODE REFERENCE -- AA1
+            //        let newItem = Item()
+            //        newItem.title = "Find Mike"
+            //        itemArray.append(newItem)
+            //        let newItem2 = Item()
+            //        newItem2.title = "Buy Eggos"
+            //        itemArray.append(newItem2)
+            //        let newItem3 = Item()
+            //        newItem3.title = "Destroy Demogorgon"
+            //        itemArray.append(newItem3)
         
         // Data file path to the plist whereby the user defaults are stored
         // guard let path = dataFilePath else { return }
@@ -49,9 +47,11 @@ class TasksVC: UITableViewController {
         
         // Deploy user defaults
         // CODE REFERENCE -- AA1
-            // if let items = defaults.array(forKey: "TasksListArray") as? [Item] {
-            //    itemArray = items
-            // }
+                // if let items = defaults.array(forKey: "TasksListArray") as? [Item] {
+                //    itemArray = items
+                // }
+          // Note: the code above is moved to a new function called loadItems()
+          loadItems()
 
     }
 
@@ -136,7 +136,6 @@ class TasksVC: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    
     // MARK: - FUNCTIONS
     // MARK: Model manipulation methods
     func saveItems() {
@@ -150,5 +149,16 @@ class TasksVC: UITableViewController {
             debugPrint("An error occurs while encoding the Property List of ItemArray: \(error.localizedDescription)")
         }
         self.tableView.reloadData()
+    }
+    func loadItems() {
+        // CODE REFERENCE -- AA1
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            let decoder = PropertyListDecoder()
+            do {
+                itemArray = try decoder.decode([Item].self, from: data)
+            } catch {
+                debugPrint("An error occurs decoding the itemsArray in the property list: \(error.localizedDescription)")
+            }
+        }
     }
 }
