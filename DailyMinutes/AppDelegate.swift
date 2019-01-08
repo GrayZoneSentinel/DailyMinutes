@@ -17,9 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        //Configure GOOGLE FIREBASE SERVICES
+        // Configure GOOGLE FIREBASE SERVICES
         FirebaseApp.configure()
         
+        // Configure USER DEFAULTS
+            // print("Path to the plist: ", NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
         
         return true
     }

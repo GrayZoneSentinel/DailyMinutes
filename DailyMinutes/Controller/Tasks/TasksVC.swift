@@ -20,7 +20,12 @@ class TasksVC: UITableViewController {
         var itemArray = [Item]()
     
         // User defaults -- Singleton
-        let defaults = UserDefaults.standard
+            // let defaults = UserDefaults.standard
+            // Create our own user plist (instead of using User Defaults. Among other things because it is not working due to
+            // the Firebase previous configuration for the Minutes section :: CODE REFERENCE -- AA1
+    
+        // Data file path to the plist whereby the user defaults are stored
+        let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
     
     // MARK: - CLASS METHODS
     // MARK: ViewDidLoad
@@ -38,10 +43,15 @@ class TasksVC: UITableViewController {
         newItem3.title = "Destroy Demogorgon"
         itemArray.append(newItem3)
         
+        // Data file path to the plist whereby the user defaults are stored
+        // guard let path = dataFilePath else { return }
+        // print(path)
+        
         // Deploy user defaults
-        if let items = defaults.array(forKey: "TasksListArray") as? [Item] {
-            itemArray = items
-        }
+        // CODE REFERENCE -- AA1
+            // if let items = defaults.array(forKey: "TasksListArray") as? [Item] {
+            //    itemArray = items
+            // }
 
     }
 
@@ -77,17 +87,18 @@ class TasksVC: UITableViewController {
                 // item.done = false
                 // }
             item.done = !item.done
-        tableView.reloadData()
+        
             //        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
             //            tableView.cellForRow(at: indexPath)?.accessoryType = .none
             //        } else {
             //            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
             //        }
+        // CODE REFERENCE -- AA1
+        // tableView.reloadData()
+           saveItems()
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
-    // MARK: - FUNCTIONS
-    
     // MARK: - ACTIONS
     // MARK: Add new task
     @IBAction func addBtn(_ sender: Any) {
@@ -100,8 +111,17 @@ class TasksVC: UITableViewController {
             //print(text)
             self.itemArray.append(newItem)
             // User defaults
-            self.defaults.set(self.itemArray, forKey: "TasksListArray")
-            self.tableView.reloadData()
+            // CODE REFERENCE -- AA1
+                // self.defaults.set(self.itemArray, forKey: "TasksListArray")
+                // let encoder = PropertyListEncoder()
+                // do {
+                //     let data = try encoder.encode(self.itemArray)
+                //     try data.write(to: self.dataFilePath!)
+                // } catch {
+                //     debugPrint("An error occurs while encoding the Property List of ItemArray: \(error.localizedDescription)")
+                // }
+            //self.tableView.reloadData()
+            self.saveItems()
         }
         
         alert.addTextField(configurationHandler: { (alertTextfield) in
@@ -116,4 +136,19 @@ class TasksVC: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    
+    // MARK: - FUNCTIONS
+    // MARK: Model manipulation methods
+    func saveItems() {
+        // CODE REFERENCE -- AA1
+           // Cut from and new task action
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(itemArray)
+            try data.write(to: dataFilePath!)
+        } catch {
+            debugPrint("An error occurs while encoding the Property List of ItemArray: \(error.localizedDescription)")
+        }
+        self.tableView.reloadData()
+    }
 }
