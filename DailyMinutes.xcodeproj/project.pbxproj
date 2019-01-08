@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		57C73B786FD38E19C40EB9D0 /* Pods_DailyMinutes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E566FDEB4E7EF33F5FCA44 /* Pods_DailyMinutes.framework */; };
 		940205A121E3AAE300D488F8 /* ScrollableViewControllerSuperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940205A021E3AAE300D488F8 /* ScrollableViewControllerSuperClass.swift */; };
+		9418B8E321E4DCCA00D1B465 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9418B8E221E4DCCA00D1B465 /* Task.swift */; };
 		9452A48321DFE19D00007CB4 /* EditCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9452A48221DFE19D00007CB4 /* EditCommentVC.swift */; };
 		9461DA6721DD39B600D8D5FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9461DA6621DD39B600D8D5FE /* Assets.xcassets */; };
 		9461DA6921DD3A1500D8D5FE /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9461DA6821DD3A1500D8D5FE /* KeyboardBoundView.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		16E566FDEB4E7EF33F5FCA44 /* Pods_DailyMinutes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyMinutes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		940205A021E3AAE300D488F8 /* ScrollableViewControllerSuperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewControllerSuperClass.swift; sourceTree = "<group>"; };
+		9418B8E221E4DCCA00D1B465 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		9452A48221DFE19D00007CB4 /* EditCommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCommentVC.swift; sourceTree = "<group>"; };
 		9461DA6621DD39B600D8D5FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9461DA6821DD3A1500D8D5FE /* KeyboardBoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				9464AED421DA9196003C6500 /* Minute.swift */,
 				949D1E1A21DE373400833E16 /* Comment.swift */,
+				9418B8E221E4DCCA00D1B465 /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				940205A121E3AAE300D488F8 /* ScrollableViewControllerSuperClass.swift in Sources */,
 				949D1E1721DE2A8400833E16 /* CommentsVC.swift in Sources */,
 				9464AEB721DA56C6003C6500 /* AppDelegate.swift in Sources */,
+				9418B8E321E4DCCA00D1B465 /* Task.swift in Sources */,
 				9461DA6921DD3A1500D8D5FE /* KeyboardBoundView.swift in Sources */,
 				9464AED321DA87ED003C6500 /* MinuteCell.swift in Sources */,
 				949D1E1B21DE373400833E16 /* Comment.swift in Sources */,

@@ -730,7 +730,7 @@
         <scene sceneID="qK1-ve-dmx">
             <objects>
                 <tabBarController id="nhP-5T-tYr" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="t84-Bs-jH5">
+                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="t84-Bs-jH5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -768,7 +768,19 @@
                             <outlet property="delegate" destination="ULr-cT-bUo" id="hR1-Gu-ppX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Daily Minutes" id="dJC-ZT-nYo"/>
+                    <navigationItem key="navigationItem" title="Daily Minutes" id="dJC-ZT-nYo">
+                        <barButtonItem key="rightBarButtonItem" image="addIconGrunge" landscapeImage="addIconGrunge" style="plain" id="b74-05-IdY">
+                            <inset key="imageInsets" minX="0.0" minY="5" maxX="-20" maxY="0.0"/>
+                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="4" maxX="-10" maxY="1"/>
+                            <color key="tintColor" red="1" green="0.64222370569999998" blue="0.077080981940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addBtn:" destination="ULr-cT-bUo" id="Jap-S9-OY6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addBtn" destination="b74-05-IdY" id="GLb-6r-Be2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdu-UN-lz3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -778,7 +790,7 @@
         <scene sceneID="ncN-xs-1Up">
             <objects>
                 <navigationController id="Dd1-ae-RVr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tasks" id="ybL-gw-Tcx">
+                    <tabBarItem key="tabBarItem" title="Tasks" image="todo" id="ybL-gw-Tcx">
                         <color key="badgeColor" red="1" green="0.64222370569999998" blue="0.077080981940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="LLY-L3-dhq">
@@ -804,10 +816,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addIconGrunge" width="128" height="128"/>
         <image name="commentIcon" width="26" height="22"/>
         <image name="intro" width="850" height="567"/>
         <image name="optionsImage" width="30" height="30"/>
         <image name="starIconFilled" width="20" height="19"/>
+        <image name="todo" width="16" height="16"/>
     </resources>
     <color key="tintColor" red="1" green="0.64222370569999998" blue="0.077080981940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
